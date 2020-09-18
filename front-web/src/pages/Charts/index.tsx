@@ -33,13 +33,19 @@ const Charts = () => {
             const recordsResponse = await axios.get(`${BASE_URL}/records`);
             const gamesResponse = await axios.get(`${BASE_URL}/games`);
 
+
+            console.log(recordsResponse.data);
+            console.log(gamesResponse.data)
+
             const barData = buildBarSeries(gamesResponse.data, recordsResponse.data.content);
             setBarChartData(barData);
 
             const platformChartData = getPlatformChartData(recordsResponse.data.content);
+            console.log(platformChartData);
             setPlatformData(platformChartData);
 
             const genderChartData = getGenderChartData(recordsResponse.data.content);
+            console.log(genderChartData);
             setGenderData(genderChartData);
         }
         getData();
